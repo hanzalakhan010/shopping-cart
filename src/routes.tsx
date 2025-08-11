@@ -2,7 +2,7 @@
 // import Cart from "./pages/Cart"
 // import ProductsPage from "./pages/Products"
 
-import { Layout } from "lucide-react";
+import Layout from "./components/Layout";
 import { createBrowserRouter, createRoutesFromElements, Route } from "react-router";
 import ProductsPage from "./pages/Products";
 import Cart from "./pages/Cart";

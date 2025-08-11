@@ -5,8 +5,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 
 const Cart = () => {
-    const { cartItems } = useContext(CartContext);
-
+    const { cartItems, setCartItems } = useContext(CartContext);
+    function handleRemove(id: number) {
+        setCartItems(cartItems.filter((i) => i.id != id))
+    }
     return (
         <div className="p-6 bg-gray-50 min-h-screen">
             <h1 className="text-2xl font-bold mb-4">Your Shopping Cart</h1>
@@ -19,15 +21,16 @@ const Cart = () => {
                     cartItems.map((item, index) => (
                         <Card key={index}>
                             <CardContent className="flex justify-between items-center py-4">
-                                <span className="font-medium">Product {index + 1}</span>
+                                <span className="font-medium">{item.name}</span>
                                 <div className="flex gap-2">
-                                    <Button variant="default" size="sm">
+                                    {/* <Button variant="default" size="sm">
                                         +
                                     </Button>
                                     <Button variant="secondary" size="sm">
                                         -
-                                    </Button>
-                                    <Button variant="destructive" size="sm">
+                                    </Button> */}
+                                    <Button variant="destructive" size="sm"
+                                        onClick={() => handleRemove(item.id)}>
                                         Remove
                                     </Button>
                                 </div>

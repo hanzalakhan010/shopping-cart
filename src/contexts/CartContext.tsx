@@ -1,7 +1,14 @@
 import type React from "react";
 import { useState, type SetStateAction, createContext } from "react";
 
-interface Item { }
+interface Item {
+  id: number,
+  name: string,
+  description: string,
+  price: number,
+  rating: number,
+  image: string
+}
 
 interface CartContextType {
   cartItems: Item[];
@@ -11,7 +18,7 @@ interface CartContextType {
 // ✅ Give createContext a generic type and matching default
 export const CartContext = createContext<CartContextType>({
   cartItems: [],
-  setCartItems: () => {},
+  setCartItems: () => { },
 });
 
 const CartContextComponent = ({ children }: { children: React.ReactNode }) => {
